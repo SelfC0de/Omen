@@ -1,4 +1,4 @@
-<p align="center"><img src="logo.png" alt="Omen" width="280"></p>
+<p align="center"><img src="banner.png" alt="Omen" width="100%"><br><img src="logo.png" alt="Omen" width="280"></p>
 
 # Omen
 
