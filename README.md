@@ -1,29 +1,35 @@
-<p align="center"><img src="banner.png" alt="Omen" width="100%"><br><img src="logo.png" alt="Omen" width="280"></p>
-
 # Omen
 
 Flipper Zero firmware. Base is Unleashed `1672f7c54`, API 88.22.
 
-Radio, NFC and BadUSB stay Unleashed code. Omen changes the menu, the about screen and the package name.
+<p align="center"><img src="banner.png" alt="Omen" width="100%"><br><img src="logo.png" alt="Omen" width="280"></p>
 
 ## Install
 
-Download `flipper-z-f7-update-omen.tgz` from the releases.
+The only install file is the latest release: `flipper-z-f7-update-omen.tgz`.
 
-- qFlipper or the Flipper mobile app: update channel Custom, choose the `.tgz`.
-- Or unpack it and open `update/f7-update-omen/update.fuf` on the device.
+qFlipper or the Flipper mobile app, channel Custom. Or unpack the archive and open `update/f7-update-omen/update.fuf` on the device.
 
-The package includes the Unleashed base apps and the current extra pack from all-the-plugins (built for API 88.21, runs on 88.22).
+## Where files go
+
+After the first boot these folders are on the card. Put each kind of file only there:
+
+| Folder | What goes in |
+| --- | --- |
+| `subghz` | Sub-GHz remotes, `.sub` |
+| `nfc` | NFC cards |
+| `lfrfid` | 125 kHz RFID |
+| `infrared` | Infrared remotes |
+| `ibutton` | iButton keys |
+| `badusb` | Bad USB scripts |
+| `apps` | Applications, already sorted: Sub-GHz, NFC, RFID, Infrared, GPIO, USB, Bluetooth, Games, Tools, Media |
+
+Timer is in the main menu. One background timer at a time. Its time stays on the top bar.
 
 ## Build
 
-Put this repository next to the firmware folder `omen-src` (the folder that contains `fbt.cmd`). Then run `build-omen.bat`.
-
-The script writes `Omen v1.0.0.X` next to itself. The last number increases when that folder already has a package. `build-omen.bat base` skips the extra pack.
-
-If the firmware path contains a space, the script maps a free drive letter for the duration of the build and removes it afterwards.
+Put this folder next to `omen-src` (the folder with `fbt.cmd`) and run `build-omen.bat`. The package is written next to the script as `Omen v1.0.0.X`. The last number increases when that folder already has a package. `build-omen.bat base` skips the extra pack.
 
 ## License
 
-GPL-3.0-only. This is Unleashed and official Flipper code plus our changes. GPL allows use, modification and forks.
-
+GPL-3.0-only.
