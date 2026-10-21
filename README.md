@@ -6,13 +6,13 @@ Flipper Zero firmware. Base is Unleashed `1672f7c54`, API 88.22.
 
 ## Install
 
-The only install file is the latest release: `flipper-z-f7-update-omen.tgz`.
+One file: `flipper-z-f7-update-omen.tgz` on the latest release.
 
-qFlipper or the Flipper mobile app, channel Custom. Or unpack the archive and open `update/f7-update-omen/update.fuf` on the device.
+qFlipper or the Flipper mobile app, channel Custom. Or unpack it and open `update/f7-update-omen/update.fuf` on the device.
 
 ## Where files go
 
-After the first boot these folders are on the card. Put each kind of file only there:
+After the first boot these folders are on the card:
 
 | Folder | What goes in |
 | --- | --- |
@@ -22,13 +22,13 @@ After the first boot these folders are on the card. Put each kind of file only t
 | `infrared` | Infrared remotes |
 | `ibutton` | iButton keys |
 | `badusb` | Bad USB scripts |
-| `apps` | Applications, already sorted: Sub-GHz, NFC, RFID, Infrared, GPIO, USB, Bluetooth, Games, Tools, Media |
+| `apps` | Applications: Sub-GHz, NFC, RFID, Infrared, GPIO, USB, Bluetooth, Games, Tools, Media |
 
-Timer is in the main menu. One background timer at a time. Its time stays on the top bar.
+Timer is in the main menu. One background timer at a time.
 
 ## Build
 
-Put this folder next to `omen-src` (the folder with `fbt.cmd`) and run `build-omen.bat`. The package is written next to the script as `Omen v1.0.0.X`. The last number increases when that folder already has a package. `build-omen.bat base` skips the extra pack.
+Put this folder next to `omen-src` and run `build-omen.bat`. The package replaces `flipper-z-f7-update-omen.tgz` next to the script. Old version folders are removed. `build-omen.bat base` skips the extra pack.
 
 ## License
 
