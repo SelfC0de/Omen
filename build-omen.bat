@@ -9,12 +9,11 @@ rem   build-omen.bat base
 rem
 rem Default build includes the extra app pack.
 rem base skips it. nosync skips git submodules.
-rem The .tgz is written next to this script, in Omen v1.0.0.X.
-rem The last number grows when that folder already has a package.
+rem The .tgz is written next to this script, replacing the previous package.
+rem Old Omen v* folders are deleted.
 
 set "OMEN=%~dp0"
 if "%OMEN:~-1%"=="\" set "OMEN=%OMEN:~0,-1%"
-set "VERFILE=%OMEN%\version.txt"
 set "PACK=extra"
 set "MAPPED="
 
@@ -50,16 +49,6 @@ if not errorlevel 1 (
     set "MAPPED=!LETTER!:"
 )
 
-if not exist "%VERFILE%" echo 1.0.0.0>"%VERFILE%"
-set /p VER=<"%VERFILE%"
-set "OUT=%OMEN%\Omen v%VER%"
-if exist "%OUT%\*.tgz" (
-    for /f "usebackq delims=" %%V in (`powershell -NoProfile -Command "$p=(Get-Content -Raw '%VERFILE%').Trim().Split('.'); $p[3]=[int]$p[3]+1; $p -join '.'"`) do set "VER=%%V"
-    >"%VERFILE%" echo !VER!
-    set "OUT=%OMEN%\Omen v!VER!"
-)
-if not exist "!OUT!" mkdir "!OUT!"
-
 cd /d "!BUILD!"
 if /I "%PACK%"=="extra" (
     echo Fetching extra apps
@@ -80,7 +69,7 @@ if /I "%PACK%"=="extra" (
     )
 )
 
-echo Building Omen v!VER! ^(%PACK%^)
+echo Building Omen ^(%PACK%^)
 set "DIST_SUFFIX=omen"
 set "FORCE_NO_DIRTY=yes"
 call fbt.cmd COMPACT=1 DEBUG=0 updater_package
@@ -94,10 +83,11 @@ set "COPIED="
 for /r "!BUILD!\dist" %%F in (*.tgz) do (
     echo %%~nxF | findstr /i /b "flipper-z-f7-update-" >nul
     if not errorlevel 1 (
-        copy /Y "%%~fF" "!OUT!\" >nul
-        set "COPIED=%%~nxF"
+        copy /Y "%%~fF" "%OMEN%\%%~nxF" >nul
+        set "COPIED=%OMEN%\%%~nxF"
     )
 )
+for /d %%D in ("%OMEN%\Omen v*") do rmdir /s /q "%%~fD"
 if defined MAPPED subst !MAPPED! /d >nul
 if not defined COPIED (
     echo No update package was produced.
@@ -105,7 +95,7 @@ if not defined COPIED (
 )
 
 echo.
-echo !OUT!\!COPIED!
+echo !COPIED!
 echo Install that .tgz with qFlipper or the Flipper mobile app, channel Custom.
 echo Or unpack it and open update\f7-update-omen\update.fuf on the device.
 exit /b 0
