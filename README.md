@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" alt="Omen" width="280"></p>
+
 # Omen
 
 Flipper Zero firmware. Base is Unleashed `1672f7c54`, API 88.22.
@@ -24,3 +26,4 @@ If the firmware path contains a space, the script maps a free drive letter for t
 ## License
 
 GPL-3.0-only. This is Unleashed and official Flipper code plus our changes. GPL allows use, modification and forks.
+
