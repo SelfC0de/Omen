@@ -91,9 +91,12 @@ if errorlevel 1 (
 )
 
 set "COPIED="
-for /r "!BUILD!\dist" %%F in (flipper-z-f7-update-*.tgz) do (
-    copy /Y "%%~fF" "!OUT!\" >nul
-    set "COPIED=%%~nxF"
+for /r "!BUILD!\dist" %%F in (*.tgz) do (
+    echo %%~nxF | findstr /i /b "flipper-z-f7-update-" >nul
+    if not errorlevel 1 (
+        copy /Y "%%~fF" "!OUT!\" >nul
+        set "COPIED=%%~nxF"
+    )
 )
 if defined MAPPED subst !MAPPED! /d >nul
 if not defined COPIED (
