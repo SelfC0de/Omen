@@ -83,8 +83,8 @@ set "COPIED="
 for /r "!BUILD!\dist" %%F in (*.tgz) do (
     echo %%~nxF | findstr /i /b "flipper-z-f7-update-" >nul
     if not errorlevel 1 (
-        copy /Y "%%~fF" "%OMEN%\%%~nxF" >nul
-        set "COPIED=%OMEN%\%%~nxF"
+        copy /Y "%%~fF" "%OMEN%\omen-update.tgz" >nul
+        set "COPIED=%OMEN%\omen-update.tgz"
     )
 )
 for /d %%D in ("%OMEN%\Omen v*") do rmdir /s /q "%%~fD"
