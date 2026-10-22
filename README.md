@@ -2,7 +2,7 @@
 
 Flipper Zero firmware. Base is Unleashed `1672f7c54`, API 88.22.
 
-<p align="center"><img src="banner.png" alt="Omen" width="100%"><br><img src="logo.png" alt="Omen" width="280"></p>
+<p align="center"><img src="banner.png" alt="Omen" width="100%"></p>
 
 ## Install
 
