@@ -6,7 +6,7 @@ Flipper Zero firmware. Base is Unleashed `1672f7c54`, API 88.22.
 
 ## Install
 
-One file: `flipper-z-f7-update-omen.tgz` on the latest release.
+One file: `omen-update.tgz` on the latest release.
 
 qFlipper or the Flipper mobile app, channel Custom. Or unpack it and open `update/f7-update-omen/update.fuf` on the device.
 
@@ -28,7 +28,7 @@ Timer is in the main menu. One background timer at a time.
 
 ## Build
 
-Put this folder next to `omen-src` and run `build-omen.bat`. The package replaces `flipper-z-f7-update-omen.tgz` next to the script. Old version folders are removed. `build-omen.bat base` skips the extra pack.
+Put this folder next to `omen-src` and run `build-omen.bat`. The package replaces `omen-update.tgz` next to the script. Old version folders are removed. `build-omen.bat base` skips the extra pack.
 
 ## License
 
