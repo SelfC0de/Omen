@@ -6,3 +6,5 @@ Omen apps:
 - Tools/omen_shelf.fap
 - USB/iphone_passcode.fap (Omen Vault)
 - USB/spy_passer.fap (Spy Passer)
+- Infrared/omen_traffic.fap (Omen Traffic)
+- Infrared/omen_scene.fap (IR Scene)
