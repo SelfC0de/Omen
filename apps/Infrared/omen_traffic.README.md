@@ -1,29 +1,22 @@
 # Omen Traffic
 
-Working Omen Infrared app (GOST R 52289-2019 §7). Not a mockup.
+Working Omen app (GOST R 52289-2019 §7 + GKRCh ПНМ 433 MHz).
 
 Copy `omen_traffic.fap` to:
 
 `SD Card/apps/Infrared/omen_traffic.fap`
 
-## What it does
+## Channels (default: all on)
 
-Pick a colour → Flipper **sends IR** and/or **drives GPIO LEDs**.
+| Channel | Details |
+|---------|---------|
+| **IR NEC** | Address `0x4F`, cmds `12`–`17` per colour. Learn IR overrides. |
+| **GPIO** | PA7=Red, PA6=Yellow, PA4=Green |
+| **Sub-GHz** | **433.92 MHz** Princeton OOK (AM650), key `0x4F4D00 \| cmd` — inside GKRCh ПНМ **433.05–434.79 MHz** |
 
-### IR (built-in NEC)
-- Address `0x4F`
-- Commands: Red `0x12`, Yellow `0x13`, Green `0x14`, Red+Yellow `0x15`, Green blink `0x16`, Off `0x17`
-- Point Flipper IR LED at your IR-controlled light / Arduino receiver
-- **Learn IR**: replace any colour with a code from your own remote (saved in `/ext/apps_data/omen_traffic/codes.txt`)
+## Menu
 
-### GPIO LEDs (Flipper header)
-| Colour | Pin |
-|--------|-----|
-| Red | PA7 |
-| Yellow | PA6 |
-| Green | PA4 |
+- Colours / GOST cycle / Learn IR / Output mode
+- Modes: IR+GPIO+433, IR+GPIO, IR+433, GPIO+433, 433 only, IR only, GPIO only
 
-Wire LED + resistor from pin to GND. Mode menu: IR+GPIO / IR only / GPIO only.
-
-### GOST cycle
-red → red+yellow (≥2 s) → green → yellow (≥3 s) → red — each step transmits for real.
+Lab/DIY receivers only. Not for municipal traffic controllers.
