@@ -4,4 +4,5 @@ Omen apps:
 - Tools/omen_stick.fap
 - Tools/omen_auth.fap
 - Tools/omen_shelf.fap
-- USB/iphone_passcode.fap
+- USB/iphone_passcode.fap (Omen Vault)
+- USB/spy_passer.fap (Spy Passer)
